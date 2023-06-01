@@ -20,4 +20,4 @@ const VideoSchema = new mongoose.Schema({
 }, 
 { timestamps: true });
 
-export { VideoSchema };
+export default VideoSchema ;

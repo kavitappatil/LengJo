@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
+import { router } from "./routes/users.js"
 
 dotenv.config();
 
@@ -17,11 +18,12 @@ app.get('/', (req, res) => {
     res.json({ message: "This is LangJo App 🏴󠁧󠁢󠁥󠁮󠁧󠁿!" });
 })
 
+app.use("/api/users", router)
 // handle undefined routes
-
 app.use((req, res) => {
     res.status(404).json({ error: 'Not Found' });
   });
+
 
 app.listen(PORT, () => {
     connect()

@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
-import { router } from "./routes/users.js"
+import { userRouter } from "./routes/users.js"
+import { videoRouter } from "./routes/beginners-level.js"
 
 dotenv.config();
 
@@ -18,7 +19,8 @@ app.get('/', (req, res) => {
     res.json({ message: "This is LangJo App 🏴󠁧󠁢󠁥󠁮󠁧󠁿!" });
 })
 
-app.use("/api/users", router)
+app.use("/api/users", userRouter)
+app.use("/api/videos", videoRouter)
 // handle undefined routes
 app.use((req, res) => {
     res.status(404).json({ error: 'Not Found' });

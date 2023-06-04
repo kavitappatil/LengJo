@@ -9,6 +9,7 @@ const VideoSchema = new mongoose.Schema({
     desc: {
         type: String,
         required: [true, "Description is required"],
+        unique: true,
     },
     videoUrl: {
         type: String,

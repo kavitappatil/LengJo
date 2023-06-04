@@ -15,6 +15,14 @@ export const testVideo = async (req,res, next) => {
         res.status(200).json("Video successfully added")
     } catch (error) {
         next(error);
-        // console.error(`Error occurred: ${error}`)
     }
+}
+
+export const displayVideo = async (req, res, next) => {
+    try {
+        const videos = await Video.find({})
+        res.status(200).json({ success: true, data: videos })
+      } catch (error) {
+        next(error)
+      }
 }

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import Video  from '../models/Video.js'
 
-export const testVideo = async (req,res) => {
+export const testVideo = async (req,res, next) => {
     console.log(req.body);
     try {
         const newVideo = new Video(req.body)
@@ -12,8 +12,9 @@ export const testVideo = async (req,res) => {
         //     views: 5,
         // })
         await newVideo.save();
-        res.send(newVideo)
+        res.status(200).json("Video successfully added")
     } catch (error) {
-        console.error(`Error occurred: ${error}`)
+        next(error);
+        // console.error(`Error occurred: ${error}`)
     }
 }

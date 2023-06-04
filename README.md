@@ -8,3 +8,4 @@
 # Models folder contains the database collections schema
 # controllers folder contains the CRUD  operations on database collections
 # Routes folder contains the different routes/endpoints
+# to call the videos locally, http://localhost:5000/api/videos/beginners-level will display the videosCollection

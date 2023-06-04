@@ -23,7 +23,7 @@ app.use(express.json());
 app.use("/api/users", userRouter)
 app.use("/api/videos", videoRouter)
 
-// handle undefined routes
+// handle errors
 app.use((error, req, res, next) => {
   const status = error.status || 500
   const message = error.message || "Something went wrong"

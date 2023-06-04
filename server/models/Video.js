@@ -3,15 +3,15 @@ import mongoose from 'mongoose';
 const VideoSchema = new mongoose.Schema({ 
     title: { 
         type: String,
-        required: true,
+        required: [true, "title is required"],
     },
     desc: {
         type: String,
-        required: true,
+        required: [true, "Description is required"],
     },
     videoUrl: {
         type: String,
-        required: true,
+        required: [true, "Video link is required"],
     },
     views: {
         type: Number,

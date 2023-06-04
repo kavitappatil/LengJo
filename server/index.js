@@ -19,8 +19,10 @@ app.get('/', (req, res) => {
     res.json({ message: "This is LangJo App 🏴󠁧󠁢󠁥󠁮󠁧󠁿!" });
 })
 
+app.use(express.json());
 app.use("/api/users", userRouter)
 app.use("/api/videos", videoRouter)
+
 // handle undefined routes
 app.use((req, res) => {
     res.status(404).json({ error: 'Not Found' });

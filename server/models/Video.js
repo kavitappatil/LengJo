@@ -4,6 +4,7 @@ const VideoSchema = new mongoose.Schema({
     title: { 
         type: String,
         required: [true, "title is required"],
+        unique: true,
     },
     desc: {
         type: String,
@@ -12,6 +13,7 @@ const VideoSchema = new mongoose.Schema({
     videoUrl: {
         type: String,
         required: [true, "Video link is required"],
+        unique: true,
     },
     views: {
         type: Number,
@@ -29,4 +31,4 @@ const VideoSchema = new mongoose.Schema({
 { timestamps: true });
 
 
-export default mongoose.model('Video', VideoSchema);
+export default mongoose.model("Video", VideoSchema);

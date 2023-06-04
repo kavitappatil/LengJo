@@ -3,6 +3,6 @@ import { testVideo } from '../controllers/video.js';
 
 const videoRouter = express.Router();
 
-videoRouter.get('/beginners-level', testVideo); 
+videoRouter.post('/beginners-level', testVideo); 
 
 export { videoRouter }

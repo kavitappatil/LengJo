@@ -1,0 +1,24 @@
+.footer {
+  background-color:#1D2130;
+  color: white;
+}
+.logo {
+    font-size: 2rem;
+}
+.small {
+    color: white;
+}
+
+.cookies {
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: flex;
+    color: #75BFB9;
+}
+
+.icon-white {
+    color: #75BFB9;
+}
+.icon-large {
+    font-size: 1.8rem;
+}

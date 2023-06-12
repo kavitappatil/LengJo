@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import Video  from '../models/Video.js'
 
-export const testVideo = async (req,res, next) => {
+export const createVideo = async (req,res, next) => {
     console.log(req.body);
     try {
         const newVideo = new Video(req.body)

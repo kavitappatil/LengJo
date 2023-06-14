@@ -12,7 +12,7 @@ const Footer = () => (
           <ul className="list-unstyled d-flex flex-column">
             <li>
               <div>
-                <p className="cookies">CONTACT US</p>
+                <p className="contact">CONTACT US</p>
                 <small className="small">
                   If you have a question about the Learn English Network, <br />{" "}
                   fill out our Contact Form, and we will get back to you asap.
@@ -23,7 +23,7 @@ const Footer = () => (
         </nav>
       </div>
       <div className="d-flex flex-column flex-md-row p-4 gap-5 py-md-5 align-items-center justify-content-center">
-        &nbsp; &nbsp;
+        &nbsp;
       </div>
       <div
         className="position-static d-flex flex-column flex-lg-row align-items-stretch
@@ -54,7 +54,7 @@ const Footer = () => (
               &nbsp; &nbsp;
             </div>
             <div className="py-3">
-              <div className="cookie">Private Policy | Cookie Notice</div>{" "}
+              <div className="cookie">Privacy Policy | Cookie Notice</div>{" "}
               <br />
               ©Copyright 2023 | 2024
               <br /> All Right Reserved

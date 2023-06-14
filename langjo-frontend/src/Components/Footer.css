@@ -9,9 +9,9 @@
     color: white;
 }
 
-.cookies {
-    font-weight: 600;
-    font-size: 1.2rem;
+.cookie {
+    font-weight: 400;
+    font-size: 1.6rem;
     display: flex;
     color: #75BFB9;
 }
@@ -21,4 +21,8 @@
 }
 .icon-large {
     font-size: 1.8rem;
+}
+.contact {
+    font-size: 1.4rem;
+    color: #75BFB9;
 }

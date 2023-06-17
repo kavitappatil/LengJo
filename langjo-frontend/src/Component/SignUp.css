@@ -1,3 +1,25 @@
 .background  {
-background-color: #EEF8F7;
+background-color: #EEF8F7 ;
 }
+.card-color {
+    background-color: #EEF8F7 !important;
+}
+.login {
+    color: #75BFB9;
+}
+.sign_up-heading {
+    font-weight: 600;
+}
+.font-weight-bold{
+font-weight: 600;
+}
+.sign_up-btn {
+    color: white !important;
+    background-color: #75BFB9 !important;
+}
+
+/* @media screen and (min-width: 992px) {
+    .section-center {
+        width: 95vw;
+    }
+} */

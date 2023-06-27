@@ -1,8 +1,39 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "./LogIn.css";
 import langJo from "../Images/langJo.png";
 
 function LogIn() {
+  const [isValid, setIsValid] = useState(true);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const resetForm = () => {
+    setFormData({
+      email: "",
+      password: "",
+    });
+  };
+
+  const handleInputChange = (event) => {
+    let { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  useEffect(() => {
+    //toast("There was an error loading this page.");
+  }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (formData.email.trim() === "" || formData.password.trim() === "") {
+      setIsValid(false);
+      return;
+    }
+  };
   return (
     <section className="background vh-100">
       <div className="container h-100">
@@ -19,18 +50,31 @@ function LogIn() {
                       Sign up as a student{" "}
                     </span>
                     &nbsp;
-                    <form>
+                    <form
+                      className={`w-75 requires-validation ${
+                        !isValid && "was-validated"
+                      }`}
+                      noValidate
+                      onSubmit={handleSubmit}
+                    >
                       <div className="form-group">
                         <div className="d-flex flex-row p-2">
-                          <label for="exampleInputEmail1">Email address</label>
+                          <label for="exampleEmail">Email address</label>
                         </div>
                         <input
                           type="email"
                           className="form-control w-75"
-                          id="exampleInputEmail1"
-                          aria-describedby="emailHelp"
-                          placeholder="Enter email"
+                          name="email"
+                          id="email"
+                          placeholder="Enter email address "
+                          maxLength="500"
+                          onChange={handleInputChange}
+                          required
+                          value={formData.email}
                         />
+                        <div id="validationEmail" className="invalid-feedback">
+                          Please enter your email address.
+                        </div>
                       </div>
                       &nbsp;
                       <div className="form-group">
@@ -40,9 +84,20 @@ function LogIn() {
                         <input
                           type="password"
                           className="form-control w-75"
+                          placeholder="Enter Password"
+                          name="email"
                           id="exampleInputPassword1"
-                          placeholder="Password"
+                          maxLength="200"
+                          onChange={handleInputChange}
+                          required
+                          value={formData.password}
                         />
+                        <div
+                          id="validationPassword"
+                          className="invalid-feedback"
+                        >
+                          Please enter your password.
+                        </div>
                       </div>
                       <br />
                       <div className="row d-flex justify-content-start p-3">

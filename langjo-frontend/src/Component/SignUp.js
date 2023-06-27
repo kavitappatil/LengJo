@@ -85,9 +85,7 @@ function SignUp() {
                       >
                         <div className="form-group ">
                           <div className="d-flex flex-row p-2">
-                            <label for="exampleName d-flex  ">
-                              Full Name
-                            </label>
+                            <label for="exampleName d-flex  ">Full Name</label>
                           </div>
                           <input
                             type="text"
@@ -138,9 +136,7 @@ function SignUp() {
                             className="form-control w-75"
                             id="exampleInputPassword1"
                             placeholder="Enter Password"
-                            className="form-control w-75"
-                            name="email"
-                            id="email"
+                            name="exampleInputPassword1"
                             maxLength="200"
                             onChange={handleInputChange}
                             required

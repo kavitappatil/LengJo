@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
+import { createErrorMessage } from '../error.js';
 
 export const signup = async (req, res, next) => {
     try {
@@ -10,6 +11,16 @@ export const signup = async (req, res, next) => {
 
         await newUser.save();
         res.status(200).send("User created successfully");
+
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const login = async (req, res, next) => {
+    try {
+        const user = await User.findOne({ name: req.body.name });
+        if (!user) return next(createErrorMessage(404, "User not found"));
 
     } catch (error) {
         next(error);

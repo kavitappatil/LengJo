@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import { userRouter } from "./routes/users.js"
 import { videoRouter } from "./routes/beginners-level.js"
+import { authRouter } from "./routes/auth.js";
+import { commentRouter } from "./routes/discussion.js";
 
 dotenv.config();
 
@@ -20,8 +22,10 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.json());
+app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
 app.use("/api/videos", videoRouter)
+app.use("/api/comments", commentRouter)
 
 // handle errors
 app.use((error, req, res, next) => {

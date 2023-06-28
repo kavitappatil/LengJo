@@ -19,8 +19,14 @@ export const signup = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
     try {
-        const user = await User.findOne({ name: req.body.name });
-        if (!user) return next(createErrorMessage(404, "User not found"));
+        // find a matching user email
+        const user = await User.findOne({ email: req.body.email });
+        if(!user) return next(createErrorMessage(404, "User not found"));
+
+        // compare password
+        const isValidPassword = await bcrypt.compare(req.body.password, user.password)
+
+        if(!isValidPassword) return next(createErrorMessage(400, "Invalid credentials"));
 
     } catch (error) {
         next(error);

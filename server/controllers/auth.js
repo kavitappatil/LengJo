@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { createErrorMessage } from '../error.js';
 
 export const signup = async (req, res, next) => {
@@ -25,8 +26,12 @@ export const login = async (req, res, next) => {
 
         // compare password
         const isValidPassword = await bcrypt.compare(req.body.password, user.password)
-
         if(!isValidPassword) return next(createErrorMessage(400, "Invalid credentials"));
+        // creating token to allow user access
+        const token = jwt.sign({ id: user._id }, process.env.JWT)
+        res.cookie("access_token", token, {
+            httpOnly: true
+        }).status(200).json(user)
 
     } catch (error) {
         next(error);

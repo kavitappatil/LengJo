@@ -23,15 +23,15 @@ export const login = async (req, res, next) => {
         // find a matching user email
         const user = await User.findOne({ email: req.body.email });
         if(!user) return next(createErrorMessage(404, "User not found"));
-
         // compare password
         const isValidPassword = await bcrypt.compare(req.body.password, user.password)
         if(!isValidPassword) return next(createErrorMessage(400, "Invalid credentials"));
         // creating token to allow user access
         const token = jwt.sign({ id: user._id }, process.env.JWT)
+        const {password, ...others} = user._doc; //prevents sending user password
         res.cookie("access_token", token, {
             httpOnly: true
-        }).status(200).json(user)
+        }).status(200).json(others)
 
     } catch (error) {
         next(error);

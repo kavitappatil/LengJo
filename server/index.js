@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 import { userRouter } from "./routes/users.js"
 import { videoRouter } from "./routes/beginners-level.js"
 import { authRouter } from "./routes/auth.js";
-import { commentRouter } from "./routes/discussion.js";
+import { commentRouter } from "./routes/comment.js";
 import cookieParser from "cookie-parser";
 
 dotenv.config();

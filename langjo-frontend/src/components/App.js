@@ -1,8 +1,7 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar";
-import Pages from "./Pages";
+import NavBar from "../../../../LangJoP/client/langjo/src/components/NavBar/NavBar";
+import Pages from "../../../../LangJoP/client/langjo/src/components/Pages";
 import "./App.css";
-import SignUp from './Component/SignUp';
 
 function App() {
   return (
@@ -10,9 +9,6 @@ function App() {
       <NavBar />
       <div>
         <Pages />
-      </div>
-      <div className="App">
-      <SignUp/>
       </div>
     </div>
   );

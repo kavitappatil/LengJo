@@ -1,7 +1,8 @@
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
-import Pages from "./components/Pages";
+import Pages from "./Pages";
 import "./App.css";
+import SignUp from './Component/SignUp';
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
       <NavBar />
       <div>
         <Pages />
+      </div>
+      <div className="App">
+      <SignUp/>
       </div>
     </div>
   );

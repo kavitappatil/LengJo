@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
-import EnglishLevel from "./EnglishLevel/EnglishLevel";
+import EnglishLevel from "./components/EnglishLevel/EnglishLevel";
 
 import Home from './Home.js';
 // import LevelTest from "./components/LevelTest/LevelTest";

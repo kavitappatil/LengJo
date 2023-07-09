@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../../../../LangJoP/client/langjo/src/components/NavBar/NavBar";
-import Pages from "../../../../LangJoP/client/langjo/src/components/Pages";
+import NavBar from "../Components/NavBar/NavBar";
+import Pages from "../Pages/Pages";
 import "./App.css";
 
 function App() {

@@ -11,20 +11,18 @@ function BeginnerLevel() {
   }, []);
 
   const getRandomVideos = async () => {
-    const API_KEY = "AIzaSyA5-eiqS5cVAwKx1Yi2M9okUTlGfCCZWGo";
-    const maxResults = 3;
-
+    
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=beginner%20english%20learning&key=${API_KEY}`
+        `http://localhost:5000/api/videos/beginners-level`
       );
-
-      const videoItems = response.data.items;
+      const videoItems = response.data.data;
       setVideos(videoItems);
     } catch (error) {
       console.error(error);
     }
   };
+
 
   return (
     <div className="section ">

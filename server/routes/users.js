@@ -11,7 +11,7 @@ userRouter.get('/find/:id', getUser)
 // delete user
 userRouter.delete('/:id', deleteUser)
 // like a video
-userRouter.put('/like/:videoId', updateUser)
+userRouter.put('/like/:videoId', like)
 // dislike a video
-userRouter.put('/dislike/:videoId', updateUser)
+userRouter.put('/dislike/:videoId', dislike)
 export { userRouter }

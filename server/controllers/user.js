@@ -21,6 +21,7 @@ export const updateUser = async (req, res, next) => {
     );
   }
 };
+
 export const deleteUser = async (req, res, next) => {
   if (req.params.id === req.user.id){
     try {
@@ -33,6 +34,27 @@ export const deleteUser = async (req, res, next) => {
     return next(createErrorMessage(403, "You can only delete your account"))
   }
 };
-export const getUser = (req, res, next) => {};
-export const like = (req, res, next) => {};
-export const dislike = (req, res, next) => {};
+
+export const getUser = async (req, res, next) => {
+ 
+    try {
+    const user = await User.findById(req.params.id)
+    res.status(200).json(user)
+    } catch (error) {
+      next(error);
+    }
+  
+};
+export const like = async (req, res, next) => {};
+export const dislike = async (req, res, next) => {};
+
+
+// if (req.params.id === req.user.id) {
+//   try {
+  
+//   } catch (error) {
+//     next(error);
+//   }
+// } else {
+//   return next(createErrorMessage(403, ""))
+// }

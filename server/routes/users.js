@@ -9,9 +9,9 @@ userRouter.put('/:id', verifyToken, updateUser)
 // get user
 userRouter.get('/find/:id', getUser)
 // delete user
-userRouter.delete('/:id', deleteUser)
+userRouter.delete('/:id', verifyToken, deleteUser)
 // like a video
-userRouter.put('/like/:videoId', like)
+userRouter.put('/like/:videoId', verifyToken, like)
 // dislike a video
-userRouter.put('/dislike/:videoId', dislike)
+userRouter.put('/dislike/:videoId', verifyToken, dislike)
 export { userRouter }

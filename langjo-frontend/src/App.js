@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
+
 import "./App.css";
-import LogIn from "./components/LogIn";
+import LogIn from "./Components/LogIn";
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Pages from "./Pages";
-import SignUp from './component/SignUp';
+import SignUp from './Component/SignUp';
   
 
 

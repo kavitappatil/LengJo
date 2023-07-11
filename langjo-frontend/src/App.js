@@ -1,12 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import LogIn from "./Components/LogIn";
+import LogIn from "./components/LogIn/LogIn";
 import React from "react";
-import NavBar from "./Components/NavBar/NavBar";
-import Pages from "./Pages";
-import SignUp from './Component/SignUp';
-  
-
+import NavBar from "./components/NavBar/NavBar";
+import Pages from "./pages/Pages";
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   return (
@@ -16,9 +13,11 @@ function App() {
         <Pages />
       </div>
       <div className="App">
-      <SignUp/>
+        <SignUp />
       </div>
-      <div><LogIn /></div>
+      <div>
+        <LogIn />
+      </div>
     </div>
   );
 }

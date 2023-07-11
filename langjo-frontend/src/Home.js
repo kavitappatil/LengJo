@@ -1,5 +1,5 @@
 import React from "react";
-import LevelTest from "./Components/LevelTest/LevelTest";
+import LevelTest from "./components/LevelTest/LevelTest";
 
 
 function Home() {

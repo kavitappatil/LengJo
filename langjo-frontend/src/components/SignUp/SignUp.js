@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { useState, useEffect } from "react";
 import "./SignUp.css";
-import langJo from "../Images/langJo.png";
+// // eslint-disable-next-line no-unused-vars
+import langJo from "../Images/langJo.png";// eslint-disable-next-line no-unused-vars
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,6 +18,7 @@ function SignUp() {
     });
   
 
+   // eslint-disable-next-line no-unused-vars
    const resetForm = () => {
 		setFormData({
       full_name: "",

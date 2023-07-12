@@ -1,28 +1,25 @@
-//AIzaSyA5-eiqS5cVAwKx1Yi2M9okUTlGfCCZWGo
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import "./BeginnerLevel.css";
 
 function BeginnerLevel() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    getRandomVideos();
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch(
+          "http://localhost:5000/api/videos/beginners-level"
+        );
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        const data = await res.json();
+        setVideos(data.data);
+      } catch (error) {
+        console.error("Failed to fetch videos:", error);
+      }
+    };
+    fetchVideos();
   }, []);
-
-  const getRandomVideos = async () => {
-    
-    try {
-      const response = await axios.get(
-        `http://localhost:5000/api/videos/beginners-level`
-      );
-      const videoItems = response.data.data;
-      setVideos(videoItems);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
 
   return (
     <div className="section ">
@@ -34,32 +31,38 @@ function BeginnerLevel() {
           engaging video tutorials to help you grasp the fundamental concepts of
           learning curve...
         </p>
-        <div className="card-group  gap-5">
-          {videos.map((video) => (
-            <div
-              className="card  video-card gap-5 rounded-5"
-              key={video.id.videoId}
-            >
-              <div className="video-overlay object-fit-fill ">
-                <div className="video-wrapper ratio ratio-1x1 rounded-4">
-                  <i className="bi bi-play-circle"></i>
-                  <iframe
-                    title={video.id.videoId}
-                    width="560"
-                    height="315"
-                    src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+        <div className="card-group gap-5">
+          {getRandomSubset(videos, 3).map((video) => {
+            const videoId = video.videoUrl.split("/").pop(); // Extract video id from videoUrl
+            return (
+              <div className="card video-card gap-5 rounded-5" key={video._id}>
+                <div className="video-overlay object-fit-fill">
+                  <div className="video-wrapper ratio ratio-1x1 rounded-4">
+                    <i className="bi bi-play-circle"></i>
+                    <iframe
+                      title={video.title}
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
   );
+}
+
+// Function to get a random subset of items from an array
+function getRandomSubset(array, size) {
+  const shuffled = array.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, size);
 }
 
 export default BeginnerLevel;

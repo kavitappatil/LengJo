@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import { userRouter } from "./routes/users.js"
 import { videoRouter } from "./routes/beginners-level.js"
+import { authRouter } from "./routes/auth.js";
+import { commentRouter } from "./routes/comment.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -18,10 +21,12 @@ const connect = () => {
 app.get('/', (req, res) => {
     res.json({ message: "This is LangJo App 🏴󠁧󠁢󠁥󠁮󠁧󠁿!" });
 })
-
+app.use(cookieParser())
 app.use(express.json());
+app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
 app.use("/api/videos", videoRouter)
+app.use("/api/comments", commentRouter)
 
 // handle errors
 app.use((error, req, res, next) => {

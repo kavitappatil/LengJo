@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import Video  from '../models/Video.js'
 
 export const createVideo = async (req,res, next) => {
-    console.log(req.body);
     try {
         const newVideo = new Video(req.body)
         // const newVideo = new Video ({
@@ -26,3 +25,4 @@ export const displayVideo = async (req, res, next) => {
         next(error)
       }
 }
+

@@ -1,5 +1,5 @@
 import express from 'express';
-import { login, signup } from '../controllers/auth.js';
+import { login, signup, googleAuth } from '../controllers/auth.js';
 
 const authRouter = express.Router();
 // create a user
@@ -9,6 +9,6 @@ authRouter.post('/signup', signup)
 authRouter.post('/login', login) 
 
 //Google auth
-authRouter.post('/google', ) 
+authRouter.post('/google', googleAuth) 
 
 export { authRouter }

@@ -2,30 +2,30 @@
 import { useState, useEffect } from "react";
 import "./SignUp.css";
 // // eslint-disable-next-line no-unused-vars
-import langJo from "../Images/langJo.png";// eslint-disable-next-line no-unused-vars
+import langJo from "../Images/langJo.png"; // eslint-disable-next-line no-unused-vars
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 
 
 function SignUp() {
-  	const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
 
-  	const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    password: "",
+  });
+
+  // eslint-disable-next-line no-unused-vars
+  const resetForm = () => {
+    setFormData({
       full_name: "",
       email: "",
       password: "",
     });
-  
-
-   // eslint-disable-next-line no-unused-vars
-   const resetForm = () => {
-		setFormData({
-      full_name: "",
-      email: "",
-      password: "",
-    });
-	};
+  };
 
   const handleInputChange = (event) => {
     let { name, value } = event.target;
@@ -37,9 +37,9 @@ function SignUp() {
   }, []);
 
   const handleSubmit = (event) => {
-		event.preventDefault();
+    event.preventDefault();
 
-		if (
+    if (
       formData.full_name.trim() === "" ||
       formData.email.trim() === "" ||
       formData.password.trim() === ""
@@ -160,6 +160,23 @@ function SignUp() {
                           >
                             Sign Up
                           </button>
+                        </div>
+                        <div className="row d-flex justify-content-start">
+                      <GoogleOAuthProvider clientId="522677820369-1puo1ppkkv61m3kt0v49m2mkot39dfmr.apps.googleusercontent.com">
+                            <GoogleLogin
+                              onSuccess={(credentialResponse) => {
+                                let decoded = jwt_decode(
+                                  credentialResponse.credential
+                                );
+                                console.log(decoded);
+                              }}
+                              onError={() => {
+                                console.log("Login Failed");
+                              }}
+                              className="btn btn-google rouded-3"
+                              buttonText="Sign in with Google"
+                            />
+                          </GoogleOAuthProvider>
                         </div>
                       </form>
                     </div>

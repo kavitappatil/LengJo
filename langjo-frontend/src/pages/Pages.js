@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import EnglishLevel from "../components/EnglishLevel/EnglishLevel";
 
 import Home from '../Home';
-
 
 function Pages() {
   return (
@@ -11,7 +10,6 @@ function Pages() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/englishlevel" element={<EnglishLevel />} />
-        
       </Routes>
     </div>
   );

@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import "./LogIn.css";
 import langJo from "../Images/langJo.png";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+
 
 function LogIn() {
   const [isValid, setIsValid] = useState(true);
@@ -106,6 +109,23 @@ function LogIn() {
                         <button type="submit" className="btn sign_up-btn w-75">
                           Login
                         </button>
+                      </div>
+                      <div className="row d-flex justify-content-center">
+                        <GoogleOAuthProvider clientId="522677820369-1puo1ppkkv61m3kt0v49m2mkot39dfmr.apps.googleusercontent.com">
+                          <GoogleLogin
+                            onSuccess={(credentialResponse) => {
+                              let decoded = jwt_decode(
+                                credentialResponse.credential
+                              );
+                              console.log(decoded);
+                            }}
+                            onError={() => {
+                              console.log("Login Failed");
+                            }}
+                            className="btn btn-google rouded-3"
+                            buttonText="Login in with Google"
+                          />
+                        </GoogleOAuthProvider>
                       </div>
                     </form>
                   </div>

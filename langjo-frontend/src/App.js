@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Pages from "./pages/Pages";
 import SignUp from "./components/SignUp/SignUp";
 
+
 function App() {
   return (
     <div>

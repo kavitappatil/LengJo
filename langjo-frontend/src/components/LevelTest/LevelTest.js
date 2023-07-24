@@ -7,7 +7,7 @@ function LevelTest() {
     window.open("https://www.britishcouncil.org/exam", "_blank");
   };
   return (
-    <div className="container py-2 level-test-container">
+    <div className="container mb- auto py-2 level-test-container">
       <div className="d-flex justify-content-center align-items-center h-100">
         <div className="row align-items-md-stretch">
           <div className="col-md-5">

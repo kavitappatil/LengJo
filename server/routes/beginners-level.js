@@ -1,9 +1,7 @@
-import express from 'express';
+import express from "express";
 import cors from "cors";
-import { displayVideo, createVideo } from '../controllers/video.js';
+import { displayVideo, createVideo } from "../controllers/video.js";
 const app = express();
-
-// import {  } from '../controllers/video.js';
 
 app.use(
   cors({
@@ -17,7 +15,7 @@ app.use(
 app.use(express.json());
 
 const videoRouter = express.Router();
-videoRouter.get('/beginners-level', displayVideo); 
-videoRouter.post('/beginners-level', createVideo); 
+videoRouter.get("/beginners-level", displayVideo);
+videoRouter.post("/beginners-level", createVideo);
 
-export { videoRouter }
+export { videoRouter };

@@ -2,6 +2,7 @@ import React from "react";
 import LevelTest from "./components/LevelTest/LevelTest";
 import BeginnerLevel from "./components/BeginnerLevel/BeginnerLevel"; 
 
+import BlocksCards from "./components/BlockCards/BlocksCards";
 
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
     <div>
       <LevelTest />
       <BeginnerLevel />
+      <BlocksCards />
     </div>
   );
 }

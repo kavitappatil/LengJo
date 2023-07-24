@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { useState, useEffect } from "react";
 import "./LogIn.css";
 import langJo from "../Images/langJo.png";
@@ -10,6 +11,7 @@ function LogIn() {
     password: "",
   });
 
+  // eslint-disable-next-line no-unused-vars
   const resetForm = () => {
     setFormData({
       email: "",

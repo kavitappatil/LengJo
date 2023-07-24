@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import "./LevelTest.css";
 
 function LevelTest() {
-  const handleLinkClick = () => {
-    window.open("https://www.britishcouncil.org/exam", "_blank");
-  };
+
   return (
-    <div className=" py-5 my-3 text-primary-emphasis mx-5 level-test-container">
+    <div className="container mb- auto py-2 level-test-container">
       <div className="d-flex justify-content-center align-items-center h-100">
         <div className="row align-items-md-stretch">
           <div className="col-md-5">
@@ -28,13 +26,19 @@ function LevelTest() {
               <h2 className="level-test-heading fs-5">
                 Free Online English Test
               </h2>
-              <button
-                className="btn btn-outline-dark bg-body-tertiary border rounded-4 my-3 level-test-link"
-                type="button"
-                onClick={handleLinkClick}
+              <a
+                href="https://www.britishcouncil.org/exam"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Take a test
-              </button>
+                <button
+                  className="btn btn-outline-dark bg-body-tertiary border rounded-4 my-3 level-test-link"
+                  type="button"
+                  
+                >
+                  Take an exam
+                </button>
+              </a>
             </div>
           </div>
         </div>

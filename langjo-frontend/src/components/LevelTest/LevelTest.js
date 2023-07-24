@@ -5,7 +5,7 @@ import "./LevelTest.css";
 function LevelTest() {
 
   return (
-    <div className=" py-5 my-3 text-primary-emphasis mx-5 level-test-container">
+    <div className="container mb- auto py-2 level-test-container">
       <div className="d-flex justify-content-center align-items-center h-100">
         <div className="row align-items-md-stretch">
           <div className="col-md-5">

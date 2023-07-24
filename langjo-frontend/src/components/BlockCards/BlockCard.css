@@ -1,0 +1,26 @@
+
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-icon {
+  font-size: 2rem;
+  color: #333;
+}
+.card-text {
+  color: black;
+  font-weight: bold;
+}
+
+.bg-cl .card-body {
+  background-color: #75BFB9;
+}
+

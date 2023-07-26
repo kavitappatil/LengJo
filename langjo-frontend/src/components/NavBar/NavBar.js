@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -23,36 +22,47 @@ function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className="home">Home</Nav.Link>
+            <Nav.Link href="/" className="home">
+              Home
+            </Nav.Link>
             <NavDropdown title="Levels" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Beginner</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Listen
+              <NavDropdown.Item href="/beginnerlevel">
+                Beginner
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/beginnerlevel">
+                Wacth & Listen{" "}
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Quiz
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">
-              About Us
-            </Nav.Link>
+            <Nav.Link href="#">About Us</Nav.Link>
           </Nav>
           <Form>
             <InputGroup>
-            <div className="search-input-wrapper">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                background-color= "#D9D9D9"
-                className="custom-search-input"
-                aria-label="Search"
-              />
-              <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          </div>
-          </InputGroup>
+              <div className="search-input-wrapper">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  background-color="#D9D9D9"
+                  className="custom-search-input"
+                  aria-label="Search"
+                />
+                <FontAwesomeIcon icon={faSearch} className="search-icon" />
+              </div>
+            </InputGroup>
           </Form>
-            <Button className="custom-button">Login</Button>
+
+          <Nav className="p-2">
+            {window.location.href.endsWith("/signup") ? (
+              <Nav.Link href="/login" className="btn sign_up-btn w-100">
+                Login
+              </Nav.Link>
+            ) : (
+              <Nav.Link href="/signup" className="btn sign_up-btn w-100">
+                Register
+              </Nav.Link>
+            )}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -8,7 +8,7 @@ const Footer = () => (
         className="position-static d-flex flex-column flex-lg-row align-items-stretch
         justify-content-start p-3 rounded-3 shadow-lg"
       >
-        <nav className="">
+        <div className="">
           <ul className="list-unstyled d-flex flex-column">
             <li>
               <div>
@@ -20,7 +20,7 @@ const Footer = () => (
               </div>
             </li>
           </ul>
-        </nav>
+        </div>
       </div>
       <div className="d-flex flex-column flex-md-row p-4 gap-5 py-md-5 align-items-center justify-content-center">
         &nbsp;

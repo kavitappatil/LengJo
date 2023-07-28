@@ -36,7 +36,7 @@ function NavBar() {
                 Quiz
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">
+            <Nav.Link href="#"> 
               About Us
             </Nav.Link>
           </Nav>

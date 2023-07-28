@@ -40,7 +40,7 @@ function NavBar() {
               About Us
             </Nav.Link>
           </Nav>
-          <Form>
+          <Form> 
             <InputGroup>
             <div className="search-input-wrapper">
               <FormControl

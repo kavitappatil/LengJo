@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./LevelTest.css";
 
 function LevelTest() {
-
   return (
     <div className="container mb- auto py-2 level-test-container">
       <div className="d-flex justify-content-center align-items-center h-100">
@@ -34,7 +33,6 @@ function LevelTest() {
                 <button
                   className="btn btn-outline-dark bg-body-tertiary border rounded-4 my-3 level-test-link"
                   type="button"
-                  
                 >
                   Take an exam
                 </button>

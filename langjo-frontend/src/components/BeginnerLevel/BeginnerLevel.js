@@ -23,7 +23,7 @@ function BeginnerLevel() {
 
   return (
     <div className="section ">
-      <div className="card-body px-5 my-5 cstm d-grid gap-5">
+      <div className="card-body px-5 my-5 cstr d-grid gap-5">
         <h5 className="card-title my-5">----- START LEARNING</h5>
         <h1 className="card-title">Beginner Level</h1>
         <p>

@@ -7,7 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import logo from "../Images/langJo.png";
+import logo from "../Images/langJo-01.png";
 
 
 function NavBar() {

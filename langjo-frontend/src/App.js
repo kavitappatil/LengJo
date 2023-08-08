@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import "./App.css";
 import LogIn from "./components/LogIn/LogIn";
 import React from "react";
@@ -25,4 +23,3 @@ function App() {
 }
 
 export default App;
->>>>>>> 5d4698662bb501754c64ca79fbbfbfef1b5543fe

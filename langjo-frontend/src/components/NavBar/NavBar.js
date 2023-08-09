@@ -58,10 +58,12 @@ function NavBar() {
               </Nav.Link>
             ) : (
               <Nav.Link href="/signup" className="btn sign_up-btn w-100">
-                Register
+                Signup
               </Nav.Link>
             )}
           </Nav>
+          {/* <Button className="custom-button">Signup</Button>
+          <Button className="custom-button">Login</Button> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

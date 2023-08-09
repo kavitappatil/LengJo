@@ -7,15 +7,15 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import logo from "../Images/langJo-01.png";
+import logo from "../Images/langJo2-01.png";
 
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="ps-5"  bg="dark" expand="lg">
       <Container fluid>
         <Navbar.Brand href="/">
-          <Image src={logo} alt="Langjo" height="50" />
+          <Image src={logo} alt="Langjo" height="40" weight="10" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -24,36 +24,32 @@ function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className="home">Home</Nav.Link>
+            <Nav.Link href="#action1" className="home">
+              Home
+            </Nav.Link>
             <NavDropdown title="Levels" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Beginner</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Listen
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Listen</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Quiz
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#"> 
-              About Us
-            </Nav.Link>
+            <Nav.Link href="#">About Us</Nav.Link>
           </Nav>
-          <Form> 
+          <Form>
             <InputGroup>
-            <div className="search-input-wrapper">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                background-color= "#D9D9D9"
-                className="custom-search-input"
-                aria-label="Search"
-              />
-              <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          </div>
-          </InputGroup>
+              <div className="search-input-wrapper">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  background-color="#D9D9D9"
+                  className="custom-search-input"
+                  aria-label="Search"
+                />
+                <FontAwesomeIcon icon={faSearch} className="search-icon" />
+              </div>
+            </InputGroup>
           </Form>
-            <Button className="custom-button">Login</Button>
+          <Button className="custom-button">Login</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

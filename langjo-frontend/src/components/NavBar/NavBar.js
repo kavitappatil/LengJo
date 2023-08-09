@@ -1,5 +1,5 @@
 import Form from "react-bootstrap/Form";
-import { Container, Nav, Navbar, Image } from "react-bootstrap";
+import { Container, Nav, Navbar, Image, Button } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./NavBar.css";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -51,7 +51,7 @@ function NavBar() {
             </InputGroup>
           </Form>
 
-          <Nav className="p-2">
+          {/* <Nav className="p-2">
             {window.location.href.endsWith("/signup") ? (
               <Nav.Link href="/login" className="btn sign_up-btn w-100">
                 Login
@@ -61,9 +61,9 @@ function NavBar() {
                 Signup
               </Nav.Link>
             )}
-          </Nav>
-          {/* <Button className="custom-button">Signup</Button>
-          <Button className="custom-button">Login</Button> */}
+          </Nav> */}
+          <Button className="custom-button">Signup</Button>
+          <Button className="custom-button">Login</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -1,99 +1,73 @@
 import React from "react";
-import { Accordion, Button, Card, Form, Modal } from "react-bootstrap";
+import {  Button, Card, Form, Modal } from "react-bootstrap";
 const QandA = () => {
-  const [questions, setQuestions] = React.useState([]);
-  const [newQuestion, setNewQuestion] = React.useState("");
-  const [newAnswer, setNewAnswer] = React.useState("");
+  const [comments, setComments] = React.useState([]);
+  const [newComment, setNewComment] = React.useState("");
+  const [newUsername, setNewUsername] = React.useState("");
   const [show, setShow] = React.useState(false);
   React.useEffect(() => {
-    fetch("http://localhost:5000/api/comment")
+    fetch("http://localhost:5000/api/comments")
       .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data);
-      });
+      .then((data) => setComments(data));
   }, []);
-  const addNewQuestion = () => {
-    fetch("http://localhost:5000/api/comment/questions", {
+  const addNewComment = () => {
+    fetch("http://localhost:5000/api/comments", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        question: newQuestion,
-        answer: newAnswer,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ comment: newComment, username: newUsername }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-    window.location.reload();
+      .then(() => window.location.reload());
   };
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   return (
     <div>
-      <h1>QandA</h1>
+      <h1 className="d-flex justify-content-center my-5">Q and A</h1>
       <div className="container">
-        {questions.map((question) => {
-          return (
-            <div className="row">
-              <div className="col-12">
-                <Card className={"card"}>
-                  <Accordion>
-                    <Accordion.Item eventKey={question.id}>
-                      <Accordion.Header>{question.question}</Accordion.Header>
-                      <Accordion.Body>{question.answer}</Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                </Card>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <br />
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <Button variant="outline-info" onClick={handleShow}>
-              Add New Question
+        {comments.map((comment, index) => (
+          <Card key={index}>
+            <Card.Body>{comment.comment}</Card.Body>
+            <Card.Footer>Username: {comment.username}</Card.Footer>
+          </Card>
+        ))}
+        <br />
+        <Button variant="secondary" onClick={handleShow}>
+          Put Your Comment
+        </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Put Your Comment</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group>
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your username"
+                  onChange={(e) => setNewUsername(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter comment"
+                  onChange={(e) => setNewComment(e.target.value)}
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="dark" onClick={handleClose}>
+              Close
             </Button>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Add New Question</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <Form>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Question</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter Question"
-                      onChange={(e) => setNewQuestion(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Answer</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter Answer"
-                      onChange={(e) => setNewAnswer(e.target.value)}
-                    />
-                  </Form.Group>
-                </Form>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="info" onClick={handleClose}>
-                  Close
-                </Button>
-                <Button variant="warning" onClick={addNewQuestion}>
-                  Save Changes
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </div>
-        </div>
+            <Button variant="warning" onClick={addNewComment}>
+              Submit Comment
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   );

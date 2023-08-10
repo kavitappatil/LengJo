@@ -1,0 +1,13 @@
+
+.pagination .page-item.active .page-link {
+  background-color: green;
+  border-radius: 50%;
+}
+
+/* Change the non-active page text color */
+.pagination .page-link {
+  
+  border-radius: 50%;
+}
+
+

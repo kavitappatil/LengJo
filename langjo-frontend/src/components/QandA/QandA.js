@@ -1,15 +1,24 @@
-import React from "react";
-import {  Button, Card, Form, Modal } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Button, Card, Form, Modal, Pagination } from "react-bootstrap";
+import "./QandA.css";
 const QandA = () => {
-  const [comments, setComments] = React.useState([]);
-  const [newComment, setNewComment] = React.useState("");
-  const [newUsername, setNewUsername] = React.useState("");
-  const [show, setShow] = React.useState(false);
-  React.useEffect(() => {
-    fetch("http://localhost:5000/api/comments")
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+  const [newUsername, setNewUsername] = useState("");
+  const [show, setShow] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const commentsPerPage = 5;
+
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/api/comments?page=${currentPage}&limit=${commentsPerPage}`
+    )
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, []);
+  }, [currentPage]);
+
+
   const addNewComment = () => {
     fetch("http://localhost:5000/api/comments", {
       method: "POST",
@@ -21,6 +30,8 @@ const QandA = () => {
   };
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+
   return (
     <div className="ps-5 my-5 w-75 container-fluid ">
       <Card className="text-center border border-0 fluid">
@@ -46,7 +57,9 @@ const QandA = () => {
               </Card.Header>
             </div>
 
-            <Card.Body className="text-start ps-5 ms-5">{comment.comment}</Card.Body>
+            <Card.Body className="text-start ps-5 ms-5">
+              {comment.comment}
+            </Card.Body>
 
             <p className="text-start fs-6">
               <small className="px-2">
@@ -57,8 +70,34 @@ const QandA = () => {
             <hr className="text-secondary" />
           </Card>
         ))}
-        <br />
-        <Button variant="secondary" onClick={handleShow}>
+        {/* Pagination */}
+        <div className="d-flex justify-content-center my-3 secondary rounded-5">
+          <Pagination>
+            <Pagination.Prev
+              className="secondary rounded-5"
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+            />
+            {Array.from({
+              length: Math.ceil(comments.length / commentsPerPage),
+            }).map((_, index) => (
+              <Pagination.Item
+                className="secondary rounded-5"
+                key={index + 1}
+                active={index + 1 === currentPage}
+                onClick={() => setCurrentPage(index + 1)}
+              >
+                {index + 1}
+              </Pagination.Item>
+            ))}
+            <Pagination.Next
+              className="secondary rounded-5"
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={comments.length < commentsPerPage}
+            />
+          </Pagination>
+        </div>
+        <Button variant="secondary" size="md" active onClick={handleShow}>
           Put Your Comment
         </Button>
         <Modal show={show} onHide={handleClose}>

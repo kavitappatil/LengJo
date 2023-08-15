@@ -25,36 +25,33 @@ function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className="home">Home</Nav.Link>
+            <Nav.Link href="#action1" className="home">
+              Home
+            </Nav.Link>
             <NavDropdown title="Levels" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Beginner</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Listen
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Listen</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Quiz
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">
-              About Us
-            </Nav.Link>
+            <Nav.Link href="#">About Us</Nav.Link>
           </Nav>
           <Form>
             <InputGroup>
-            <div className="search-input-wrapper">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                background-color= "#D9D9D9"
-                className="custom-search-input"
-                aria-label="Search"
-              />
-              <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          </div>
-          </InputGroup>
+              <div className="search-input-wrapper">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  background-color="#D9D9D9"
+                  className="custom-search-input"
+                  aria-label="Search"
+                />
+                <FontAwesomeIcon icon={faSearch} className="search-icon" />
+              </div>
+            </InputGroup>
           </Form>
-            <Button className="custom-button">Login</Button>
+          <Button className="custom-button">Signup</Button>
+          <Button className="custom-button">Login</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

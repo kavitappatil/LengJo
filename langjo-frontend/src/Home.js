@@ -1,12 +1,10 @@
 import React from "react";
-import LevelTest from "./LevelTest/LevelTest";
-
+import LevelTest from "./components/LevelTest/LevelTest";
 
 function Home() {
   return (
     <div>
       <LevelTest />
-    
     </div>
   );
 }

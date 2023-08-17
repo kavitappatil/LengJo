@@ -9,23 +9,22 @@ export const getComments = async (req, res) => {
   }
 };
 
-export const createQuestion = async (req, res) => {
-  const question = req.body;
-  const newQuestion = new Comment(question);
+export const createComment = async (req, res) => {
+  const comment = req.body;
+  const newComment = new Comment(comment);
   try {
-    await newQuestion.save();
-    res.status(201).json(newQuestion);
+    await newComment.save();
+    res.status(201).json(newComment);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
 };
 
-export const createAnswer = async (req, res) => {
-  const answer = req.body;
-  const newAnswer = new Comment(answer);
+export const deleteComment = async (req, res) => {
+  const { id } = req.params;
   try {
-    await newAnswer.save();
-    res.status(201).json(newAnswer);
+    await Comment.findByIdAndRemove(id);
+    res.status(200).json({ message: "Comment deleted successfully" });
   } catch (error) {
     res.status(409).json({ message: error.message });
   }

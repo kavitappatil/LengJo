@@ -41,7 +41,7 @@ app.use("/api/comments", commentRouter)
 // API routes
 app.use("/api/users", userRouter);
 app.use("/api/videos", videoRouter);
-// app.use("/api/comments", commentRouter);
+app.use("/api/comments", commentRouter);
 
 // Error-handling middleware
 app.use((error, req, res, next) => {

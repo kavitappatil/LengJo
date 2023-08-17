@@ -1,19 +1,17 @@
 import mongoose from "mongoose";
-
-const CommentsSchema = new mongoose.Schema(
+const CommentSchema = new mongoose.Schema(
   {
-    questions: {
+    comment: {
       type: String,
-      required: [true, "Questions are required"],
-      unique: true,
-    },
-    answers: {
-      type: String,
-      unique: true,
+      required: true,
       
+    },
+    username: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
 );
-
-export default mongoose.model("Comments", CommentsSchema);
+const Comment = mongoose.model("Comment", CommentSchema);
+export default Comment;

@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Pages from "./Pages";
 import "./App.css";
-import SignUp from './Component/SignUp';
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   return (

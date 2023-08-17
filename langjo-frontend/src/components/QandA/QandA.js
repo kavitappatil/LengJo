@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Form, Modal, Pagination } from "react-bootstrap";
 import "./QandA.css";
+
 const QandA = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [newUsername, setNewUsername] = useState("");
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const commentsPerPage = 5;
-
+  const commentsPerPage = 4;
 
   useEffect(() => {
     fetch(
@@ -17,7 +17,6 @@ const QandA = () => {
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [currentPage]);
-
 
   const addNewComment = () => {
     fetch("http://localhost:5000/api/comments", {
@@ -31,14 +30,13 @@ const QandA = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-
   return (
-    <div className="ps-5 my-5 w-75 container-fluid ">
-      <Card className="text-center border border-0 fluid">
+    <div className="ps-5 my-5 w-75 container-fluid p-5 g-5">
+      <Card className="text-center border border-0 fluid ">
         <h1 className="d-flex justify-content-center my-5 fw-bold">Q and A</h1>
 
         {comments.map((comment, index) => (
-          <Card className=" border border-5 gap={2} " key={index}>
+          <Card className=" border border-5 border-end g-5 pe-5 ms-5 " key={index}>
             <div className="fs-6 border-2 d-flex justify-content-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +68,7 @@ const QandA = () => {
             <hr className="text-secondary" />
           </Card>
         ))}
+
         {/* Pagination */}
         <div className="d-flex justify-content-center my-3 secondary rounded-5">
           <Pagination>

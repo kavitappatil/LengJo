@@ -1,19 +1,21 @@
-import { Container, Nav, Navbar, Form, Image } from "react-bootstrap";
+import { Container, Nav, Navbar, Image } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./NavBar.css";
+import './NavBar.css';
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import logo from "../Images/langJo.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import logo from "../Images/langJo2-01.png";
+
 
 function NavBar() {
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar className="navbar" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/all-users">
-            <Image src={logo} alt="Langjo" height="50" />
+          <Navbar.Brand href="/">
+            <Image src={logo} alt="Langjo" height="40" weight="10" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -22,10 +24,10 @@ function NavBar() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/" className="home">
+              <Nav.Link href="/" className="home text-white">
                 Home
               </Nav.Link>
-              <NavDropdown title="Levels" id="navbarScrollingDropdown">
+              <NavDropdown className="bg-light rounded-5 px-3 mx-3" title="Levels" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="/beginnerlevel">
                   Beginner
                 </NavDropdown.Item>
@@ -43,7 +45,7 @@ function NavBar() {
                     type="search"
                     placeholder="Search"
                     background-color="#D9D9D9"
-                    className="custom-search-input"
+                    className="custom-search-input rounded-5 "
                     aria-label="Search"
                   />
                   <FontAwesomeIcon icon={faSearch} className="search-icon" />

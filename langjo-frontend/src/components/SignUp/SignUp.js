@@ -17,6 +17,10 @@ function SignUp() {
     email: "",
     password: "",
   });
+  const handleLoginLinkClick = () => {
+  
+    window.location.href = "/login";
+  };
 
   // eslint-disable-next-line no-unused-vars
   const resetForm = () => {
@@ -76,7 +80,9 @@ function SignUp() {
                       </p>
                       <span className="form-group d-flex flex-row p-2">
                         Already have an account?{" "}
-                        <span className="login">&nbsp; Log in</span>
+                        <span className="login" onClick={handleLoginLinkClick}>
+                          &nbsp; Log in
+                        </span>
                       </span>
                       &nbsp;
                       <form

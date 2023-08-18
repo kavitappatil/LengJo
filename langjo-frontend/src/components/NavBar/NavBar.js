@@ -27,7 +27,11 @@ function NavBar() {
               <Nav.Link href="/" className="home text-white">
                 Home
               </Nav.Link>
-              <NavDropdown className="bg-light rounded-5 px-3 mx-3" title="Levels" id="navbarScrollingDropdown">
+              <NavDropdown
+                className="bg-light rounded-5 px-3 mx-3"
+                title="Levels"
+                id="navbarScrollingDropdown"
+              >
                 <NavDropdown.Item href="/beginnerlevel">
                   Beginner
                 </NavDropdown.Item>
@@ -36,7 +40,9 @@ function NavBar() {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#">About Us</Nav.Link>
+              <Nav.Link href="#" className="home text-white">
+                About Us
+              </Nav.Link>
             </Nav>
             <Form>
               <InputGroup>

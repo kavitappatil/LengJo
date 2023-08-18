@@ -2,30 +2,31 @@
 import { useState, useEffect } from "react";
 import "./SignUp.css";
 // // eslint-disable-next-line no-unused-vars
-import langJo from "../Images/langJo.png";// eslint-disable-next-line no-unused-vars
+import langJo from "../Images/langJo.png"; // eslint-disable-next-line no-unused-vars
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-
 function SignUp() {
-  	const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
 
-  	const [formData, setFormData] = useState({
-      full_name: "",
-      email: "",
-      password: "",
-    });
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    password: "",
+  });
+  const handleLoginLinkClick = () => {
   
+    window.location.href = "/login";
+  };
 
-   // eslint-disable-next-line no-unused-vars
-   const resetForm = () => {
-		setFormData({
+  // eslint-disable-next-line no-unused-vars
+  const resetForm = () => {
+    setFormData({
       full_name: "",
       email: "",
       password: "",
     });
-	};
+  };
 
   const handleInputChange = (event) => {
     let { name, value } = event.target;
@@ -37,9 +38,9 @@ function SignUp() {
   }, []);
 
   const handleSubmit = (event) => {
-		event.preventDefault();
+    event.preventDefault();
 
-		if (
+    if (
       formData.full_name.trim() === "" ||
       formData.email.trim() === "" ||
       formData.password.trim() === ""
@@ -76,7 +77,9 @@ function SignUp() {
                       </p>
                       <span className="form-group d-flex flex-row p-2">
                         Already have an account?{" "}
-                        <span className="login">&nbsp; Log in</span>
+                        <span className="login" onClick={handleLoginLinkClick}>
+                          &nbsp; Log in
+                        </span>
                       </span>
                       &nbsp;
                       <form

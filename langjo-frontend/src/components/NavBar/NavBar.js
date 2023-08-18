@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -21,11 +20,11 @@ function NavBar() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-3 my-lg-0"
+              className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1" className="home text-white">
+              <Nav.Link href="/" className="home text-white">
                 Home
               </Nav.Link>
               <NavDropdown
@@ -33,12 +32,15 @@ function NavBar() {
                 title="Levels"
                 id="navbarScrollingDropdown"
               >
-                <NavDropdown.Item href="#action3">Beginner</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Listen</NavDropdown.Item>
+                <NavDropdown.Item href="/beginnerlevel">
+                  Beginner
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#inter">Intermadite </NavDropdown.Item>
+                <NavDropdown.Item href="#advan">Advance </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#" className="text-white">
+              <Nav.Link href="#" className="home text-white">
                 About Us
               </Nav.Link>
             </Nav>
@@ -56,8 +58,22 @@ function NavBar() {
                 </div>
               </InputGroup>
             </Form>
-            <Button className="custom-button">Signup</Button>
-            <Button className="custom-button">Login</Button>
+
+            <Nav className="p-2">
+              <Nav.Link
+                href="/login"
+                className=" custom-button btn sign_up-btn w-100"
+              >
+                Login
+              </Nav.Link>
+
+              <Nav.Link
+                href="/signup"
+                className="custom-button btn sign_up-btn w-100"
+              >
+                SignUp
+              </Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import * as dotenv from "dotenv";
 import { userRouter } from "./routes/users.js"
 import { videoRouter } from "./routes/beginners-level.js"
@@ -11,12 +12,21 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const app = express();
-// MongoDb connection
+
+// Enable CORS for all routes
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type, Authorization, X-Requested-With, Accept",
+  })
+);
+
 const connect = () => {
-    mongoose.connect(process.env.MONGO_DB)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch((error) => {throw error});
-}
+  mongoose.connect(
+    "mongodb+srv://chioma:chioma@cluster0.cfdz7fx.mongodb.net/?retryWrites=true&w=majority"
+  );
+};
 
 app.get('/', (req, res) => {
     res.json({ message: "This is LangJo App 🏴󠁧󠁢󠁥󠁮󠁧󠁿!" });
@@ -28,20 +38,16 @@ app.use("/api/users", userRouter)
 app.use("/api/videos", videoRouter)
 app.use("/api/comments", commentRouter)
 
-// handle errors
-app.use((error, req, res, next) => {
-  const status = error.status || 500
-  const message = error.message || "Something went wrong"
-   return res.status(status).json({ 
-    success: false,
-    status,
-    message
-   });
-  });
+// API routes
+app.use("/api/users", userRouter);
+app.use("/api/videos", videoRouter);
 
+// Error-handling middleware
+app.use((error, req, res, next) => {
+  // Error handling code
+});
 
 app.listen(PORT, () => {
-    connect()
-    console.log(`Listening on port ${PORT}`);
-  });
-  
+  connect();
+  console.log(`Listening on port ${PORT}`);
+});

@@ -29,7 +29,7 @@ function NavBar() {
                 Home
               </Nav.Link>
               <NavDropdown
-                className="text-white"
+                className="bg-light rounded-5 px-3 mx-3"
                 title="Levels"
                 id="navbarScrollingDropdown"
               >
@@ -49,7 +49,7 @@ function NavBar() {
                     type="search"
                     placeholder="Search"
                     background-color="#D9D9D9"
-                    className="custom-search-input"
+                    className="custom-search-input rounded-5 "
                     aria-label="Search"
                   />
                   <FontAwesomeIcon icon={faSearch} className="search-icon" />

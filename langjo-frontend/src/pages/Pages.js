@@ -12,8 +12,8 @@ function Pages() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/englishlevel" element={<EnglishLevel />} />
         <Route path="/beginnerlevel" element={<BeginnerLevel />} />
         <Route path="/blockcards" element={<BlockCards />} />

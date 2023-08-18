@@ -40,3 +40,12 @@
   pointer-events: none; 
   font-size: 14px;
 }
+
+
+.navbar {
+  background-color: #1d2130;
+}
+
+.text-white-custom {
+  color: white !important; 
+}

@@ -56,6 +56,7 @@ function NavBar() {
               </div>
             </InputGroup>
           </Form>
+          <Button className="custom-button">Signup</Button>
           <Button className="custom-button">Login</Button>
         </Navbar.Collapse>
       </Container>

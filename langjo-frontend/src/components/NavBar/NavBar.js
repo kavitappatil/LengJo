@@ -15,7 +15,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="navbar" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">LangJo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -25,16 +25,22 @@ function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className="home">
+            <Nav.Link href="#action1" className="home text-white">
               Home
             </Nav.Link>
-            <NavDropdown title="Levels" id="navbarScrollingDropdown">
+            <NavDropdown
+              className="text-white"
+              title="Levels"
+              id="navbarScrollingDropdown"
+            >
               <NavDropdown.Item href="#action3">Beginner</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Listen</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">About Us</Nav.Link>
+            <Nav.Link href="#" className="text-white">
+              About Us
+            </Nav.Link>
           </Nav>
           <Form>
             <InputGroup>

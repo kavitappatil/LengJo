@@ -1,27 +1,33 @@
 import React from "react";
 import "./Hero.css";
+import langJoH from "../Images/LangJO-02-01.png";
 
 function Hero() {
   return (
-    <div>
-      <div className="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-        <div className="col-lg-6 px-0">
-          <h1 className="display-4 fst-italic">
-            Title of a longer featured blog post
+    <section className="background ">
+      <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div className=" col-sm-6 row img-fluid back-img">
+          <img src={langJoH} alt="Sample" />
+        </div>
+        <div className="col-sm-6 row p-5">
+          <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+            Learn English online for free with LangJo
           </h1>
-          <p className="lead my-3">
-            Multiple lines of text that form the lede, informing new readers
-            quickly and efficiently about what’s most interesting in this post’s
-            contents.
+          <p className="lead">
+            Get ready for real-world interactions in English with support from
+            our online
           </p>
-          <p className="lead mb-0">
-            <a href="#" className="text-body-emphasis fw-bold">
-              Continue reading...
-            </a>
-          </p>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button
+              type="button"
+              className="button-bt rounded btn-lg px-4 me-md-2"
+            >
+              Learn More
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

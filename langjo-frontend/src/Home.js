@@ -7,10 +7,10 @@ import Hero from "./components/Hero/Hero";
 function Home() {
   return (
     <div>
+      <Hero />
       <LevelTest />
       <BeginnerLevel />
       <BlocksCards />
-      <Hero />
     </div>
   );
 }

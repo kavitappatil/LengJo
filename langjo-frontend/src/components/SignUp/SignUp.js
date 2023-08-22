@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import { useState, useEffect } from "react";
+import { React,  useState, useEffect } from "react";
 import "./SignUp.css";
 // // eslint-disable-next-line no-unused-vars
 import langJo from "../Images/langJo.png"; // eslint-disable-next-line no-unused-vars

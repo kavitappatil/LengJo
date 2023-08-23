@@ -63,9 +63,6 @@ const Footer = () => (
         </label>
       </div>
     </div>
-    {/* </div>
-      </div> */}
-    {/* </div> */}
   </footer>
 );
 

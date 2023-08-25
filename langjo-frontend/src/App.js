@@ -1,12 +1,12 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar";
+// import NavBar from "./components/NavBar/NavBar";
 import Pages from "./pages/Pages";
 
 
 function App() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <div>
         <Pages />
       </div>

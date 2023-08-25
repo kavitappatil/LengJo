@@ -1,10 +1,8 @@
 .footer {
-  background-color:#1D2130;
-  color: white;
+    background-color: #06172D;
+    color: white;
 }
-.logo {
-    font-size: 2rem;
-}
+
 .small {
     color: white;
 }
@@ -19,9 +17,11 @@
 .icon-white {
     color: #75BFB9;
 }
+
 .icon-large {
     font-size: 1.8rem;
 }
+
 .contact {
     font-size: 1.4rem;
     color: #75BFB9;

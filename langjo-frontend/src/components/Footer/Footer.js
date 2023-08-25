@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./Footer.css";
+import langJoH from "../Images/langJo-name-01.png";
 
 const Footer = () => (
   <footer className="footer">
@@ -31,7 +33,9 @@ const Footer = () => (
       >
         <label className="d-flex flex-column">
           <div class="col">
-            <div className="logo">LangJo</div>
+            <div className="logo img-fluid">
+              <img src={langJoH} alt="Sample" />
+            </div>
             &nbsp; &nbsp;
             <div>
               <div className="col item social">

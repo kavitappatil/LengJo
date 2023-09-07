@@ -9,14 +9,15 @@ const QandA = () => {
   const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const commentsPerPage = 4;
+  const skip = (currentPage -1) * commentsPerPage;
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/comments?page=${currentPage}&limit=${commentsPerPage}`
+      `http://localhost:5000/api/comments?limit=${commentsPerPage}&skip=${skip}`
     )
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, [currentPage]);
+  }, [currentPage, skip]);
 
   const addNewComment = () => {
     fetch("http://localhost:5000/api/comments", {

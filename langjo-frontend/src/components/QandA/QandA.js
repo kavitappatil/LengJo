@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Form, Modal, Pagination } from "react-bootstrap";
+import { Button, Card, Form, Modal } from "react-bootstrap";
 import "./QandA.css";
 
 const QandA = () => {
@@ -7,37 +7,70 @@ const QandA = () => {
   const [newComment, setNewComment] = useState("");
   const [newUsername, setNewUsername] = useState("");
   const [show, setShow] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const commentsPerPage = 4;
-  const skip = (currentPage -1) * commentsPerPage;
+  // eslint-disable-next-line no-unused-vars
+  const [errorMessage, setErrorMessage] = useState("");
+  const [totalComments, setTotalComments] = useState(0);
+  const [commentsPerPage, setCommentsPerPage] = useState(4);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/api/comments?limit=${commentsPerPage}&skip=${skip}`
-    )
-      .then((res) => res.json())
-      .then((data) => setComments(data));
-  }, [currentPage, skip]);
+    fetch(`http://localhost:5000/api/comments`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error fetching comments");
+        }
+      })
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setComments(data);
+          setTotalComments(data.length);
+        } else {
+          throw new Error("Returned data is not an Array");
+        }
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  }, []);
 
-  const addNewComment = () => {
-    fetch("http://localhost:5000/api/comments", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ comment: newComment, username: newUsername }),
-    })
-      .then((res) => res.json())
-      .then(() => window.location.reload());
+  const handleShowMore = () => {
+    setCommentsPerPage((prevCommentsPerPage) => prevCommentsPerPage + 4);
   };
+
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
+  const addNewComment = async () => {
+    const commentData = { comment: newComment, username: newUsername };
+    try {
+      const res = await fetch("http://localhost:5000/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(commentData),
+      });
+
+      if (!res.ok) throw new Error("Error adding comment");
+      // Resetting states and Clearing the input fields
+      setComments([commentData, ...comments]);
+      setTotalComments(totalComments + 1);
+      setNewComment("");
+      setNewUsername("");
+      setShow(false);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
   return (
     <div className="ps-5 my-5 w-75 container-fluid p-5 g-5">
       <Card className="text-center border border-0 fluid ">
         <h1 className="d-flex justify-content-center my-5 fw-bold">Q and A</h1>
 
-        {comments.map((comment, index) => (
-          <Card className=" border border-5 border-end g-5 pe-5 ms-5 " key={index}>
+        {comments.slice(0, commentsPerPage).map((comment, index) => (
+          <Card
+            className="border border-5 border-end g-5 pe-5 ms-5 "
+            key={index}
+          >
             <div className="fs-6 border-2 d-flex justify-content-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,36 +103,29 @@ const QandA = () => {
           </Card>
         ))}
 
-        {/* Pagination */}
-        <div className="d-flex justify-content-center my-3 secondary rounded-5">
-          <Pagination>
-            <Pagination.Prev
-              className="secondary rounded-5"
-              onClick={() => setCurrentPage(currentPage - 1)}
-              disabled={currentPage === 1}
-            />
-            {Array.from({
-              length: Math.ceil(comments.length / commentsPerPage),
-            }).map((_, index) => (
-              <Pagination.Item
-                className="secondary rounded-5"
-                key={index + 1}
-                active={index + 1 === currentPage}
-                onClick={() => setCurrentPage(index + 1)}
-              >
-                {index + 1}
-              </Pagination.Item>
-            ))}
-            <Pagination.Next
-              className="secondary rounded-5"
-              onClick={() => setCurrentPage(currentPage + 1)}
-              disabled={comments.length < commentsPerPage}
-            />
-          </Pagination>
+        {/* Show More */}
+        <div className="d-flex justify-content-center  my-3 gap-5 ">
+          {commentsPerPage < totalComments && (
+            <Button
+              className="sc-btn fs-6 px-5 rounded-5"
+              variant="secondary
+  "
+              onClick={handleShowMore}
+            >
+              See More
+            </Button>
+          )}
+
+          <Button
+            className="sc-btn fs-6 px-5 rounded-5"
+            variant="secondary"
+            size="sm"
+            active
+            onClick={handleShow}
+          >
+            Comment
+          </Button>
         </div>
-        <Button variant="secondary" size="md" active onClick={handleShow}>
-          Put Your Comment
-        </Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Put Your Comment</Modal.Title>
@@ -125,11 +151,15 @@ const QandA = () => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="dark" onClick={handleClose}>
+            <Button
+              variant="dark"
+              className="fs-6 rounded-5"
+              onClick={handleClose}
+            >
               Close
             </Button>
-            <Button variant="warning" onClick={addNewComment}>
-              Submit Comment
+            <Button className="sc-btn fs-6 rounded-5" onClick={addNewComment}>
+              Comment
             </Button>
           </Modal.Footer>
         </Modal>
@@ -137,4 +167,5 @@ const QandA = () => {
     </div>
   );
 };
+
 export default QandA;

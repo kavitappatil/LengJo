@@ -108,8 +108,7 @@ const QandA = () => {
           {commentsPerPage < totalComments && (
             <Button
               className="sc-btn fs-6 px-5 rounded-5"
-              variant="secondary
-  "
+              variant="secondary"
               onClick={handleShowMore}
             >
               See More

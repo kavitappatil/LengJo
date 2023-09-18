@@ -1,9 +1,8 @@
 import "./App.css";
-import LogIn from "./components/LogIn/LogIn";
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Pages from "./pages/Pages";
-import SignUp from "./components/SignUp/SignUp";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -12,11 +11,8 @@ function App() {
       <div>
         <Pages />
       </div>
-      <div className="App">
-        <SignUp />
-      </div>
       <div>
-        <LogIn />
+        <Footer />
       </div>
     </div>
   );

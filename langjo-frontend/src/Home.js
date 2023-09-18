@@ -3,6 +3,7 @@ import LevelTest from "./components/LevelTest/LevelTest";
 import BeginnerLevel from "./components/BeginnerLevel/BeginnerLevel";
 import BlocksCards from "./components/BlockCards/BlocksCards";
 import Hero from "./components/Hero/Hero";
+import VideoDetails from "./components/VideoDetail/VideoDetails";
 
 function Home() {
   return (

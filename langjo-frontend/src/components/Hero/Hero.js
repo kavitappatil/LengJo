@@ -20,7 +20,7 @@ function Hero() {
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             <button
               type="button"
-              className="button-bt rounded btn-lg px-4 me-md-2"
+              className="button-hero rounded btn-lg px-4 me-md-2"
             >
               Learn More
             </button>

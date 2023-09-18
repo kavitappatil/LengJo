@@ -15,7 +15,6 @@ function SignUp() {
     password: "",
   });
   const handleLoginLinkClick = () => {
-  
     window.location.href = "/login";
   };
 
@@ -140,9 +139,9 @@ function SignUp() {
                           <input
                             type="password"
                             className="form-control w-75"
-                            id="exampleInputPassword1"
+                            id="password"
                             placeholder="Enter Password"
-                            name="exampleInputPassword1"
+                            name="password"
                             maxLength="200"
                             onChange={handleInputChange}
                             required

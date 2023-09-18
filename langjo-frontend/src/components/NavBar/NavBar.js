@@ -1,72 +1,83 @@
+import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { Container, Nav, Navbar, Image, Button } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./NavBar.css";
+import './NavBar.css';
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import logo from "../Images/langJo.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import logo from "../Images/langJo2-01.png";
+
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Brand href="/all-users">
-          <Image src={logo} alt="Langjo" height="50" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link href="/" className="home">
-              Home
-            </Nav.Link>
-            <NavDropdown title="Levels" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/beginnerlevel">
-                Beginner
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#inter">Intermadite </NavDropdown.Item>
-              <NavDropdown.Item href="#advan">Advance </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#">About Us</Nav.Link>
-          </Nav>
-          <Form>
-            <InputGroup>
-              <div className="search-input-wrapper">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  background-color="#D9D9D9"
-                  className="custom-search-input"
-                  aria-label="Search"
-                />
-                <FontAwesomeIcon icon={faSearch} className="search-icon" />
-              </div>
-            </InputGroup>
-          </Form>
+    <div>
+      <Navbar className="navbar" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="/">
+            <Image src={logo} alt="Langjo" height="40" weight="10" />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link href="/" className="home text-white">
+                Home
+              </Nav.Link>
+              <NavDropdown
+                className="bg-light rounded-5 px-3 mx-3"
+                title="Levels"
+                id="navbarScrollingDropdown"
+              >
+                <NavDropdown.Item href="/beginnerlevel">
+                  Beginner
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#inter">Intermadite </NavDropdown.Item>
+                <NavDropdown.Item href="#advan">Advance </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#" className="home text-white">
+                About Us
+              </Nav.Link>
+            </Nav>
+            <Form>
+              <InputGroup>
+                <div className="search-input-wrapper">
+                  <FormControl
+                    type="search"
+                    placeholder="Search"
+                    background-color="#D9D9D9"
+                    className="custom-search-input rounded-5 "
+                    aria-label="Search"
+                  />
+                  <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                </div>
+              </InputGroup>
+            </Form>
 
-          {/* <Nav className="p-2">
-            {window.location.href.endsWith("/signup") ? (
-              <Nav.Link href="/login" className="btn sign_up-btn w-100">
+            <Nav className="p-2">
+              <Nav.Link
+                href="/login"
+                className=" custom-button btn sign_up-btn w-100"
+              >
                 Login
               </Nav.Link>
-            ) : (
-              <Nav.Link href="/signup" className="btn sign_up-btn w-100">
-                Signup
+
+              <Nav.Link
+                href="/signup"
+                className="custom-button btn sign_up-btn w-100"
+              >
+                SignUp
               </Nav.Link>
-            )}
-          </Nav> */}
-          <Button className="custom-button">Signup</Button>
-          <Button className="custom-button">Login</Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 }
 

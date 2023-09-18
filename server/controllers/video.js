@@ -54,3 +54,15 @@ export const getVideoByTitle = async (req, res, next) => {
     next(error);
   }
 };
+
+export const searchVideo = async (req, res, next) => {
+  const query = req.query.q;
+  try {
+    const videos = await Video.find({ 
+        title: { $regex: query, $options: "i" },
+    }).limit(10);
+    res.status(200).json({ success: true, data: videos });
+  } catch (error) {
+    next(error);
+  }
+};

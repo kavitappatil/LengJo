@@ -3,3 +3,8 @@ dist/
 node_modules/
 .DS_Store
 .env
+*.c
+*pid
+*ppid
+*print
+

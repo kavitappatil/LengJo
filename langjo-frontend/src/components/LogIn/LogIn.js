@@ -117,15 +117,16 @@ function LogIn() {
                     />
                   </div>
                 </div>
+                <div>
+                  By clicking Continue with or Log in, you agree to LangJo{" "}
+                  <br />
+                  <span className="font-weight-bold">
+                    Terms of Service and Privacy Policy
+                  </span>
+                  &nbsp; &nbsp;
+                </div>
+                <span className="font-weight-bold">&nbsp; &nbsp; </span>
               </div>
-              <div>
-                By clicking Continue with or Log in, you agree to LangJo <br />
-                <span className="font-weight-bold">
-                  Terms of Service and Privacy Policy
-                </span>
-                &nbsp; &nbsp;
-              </div>
-              <span className="font-weight-bold">&nbsp; &nbsp; </span>
             </div>
           </div>
         </div>

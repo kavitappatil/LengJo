@@ -19,7 +19,7 @@ function Pages() {
         <Route path="/englishlevel" element={<EnglishLevel />} />
         <Route path="/beginnerlevel" element={<BeginnerLevel />} />
         <Route path="/blockcards" element={<BlockCards />} />
-        <Route path="/video-page" element={<VideoPage />} />
+        <Route path="/video-page/:id" element={<VideoPage />} />
       </Routes>
     </div>
   );

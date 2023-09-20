@@ -50,21 +50,22 @@ function BeginnerLevel() {
                     ></iframe>
                   </div>
                 </div>
+                <div className="d-grid gap-1 col-3 mx-auto px-5">
+                  <a
+                    className="btn btn-secondary sign_up-btn rounded-5 py-2"
+                    href={`/video-page/${video._id}`}
+                    role="button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    See More
+                  </a>
+                </div>
               </div>
             );
           })}
         </div>
-        <div className="d-grid gap-1 col-3 mx-auto px-5">
-          <a
-            className="btn btn-secondary sign_up-btn rounded-5 py-2"
-            href="/video-page"
-            role="button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            See More
-          </a>
-        </div>
+      
       </div>
     </div>
   );

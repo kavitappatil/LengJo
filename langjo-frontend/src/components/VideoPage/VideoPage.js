@@ -22,7 +22,7 @@ const VideoPage = () => {
   }, [videoId]);
   if (!videoData) {
     return (
-      <div className="d-flex justify-content-center m-5 p-5">
+      <div className="d-flex justify-content-center aligin-items-center m-5 p-5">
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -32,15 +32,17 @@ const VideoPage = () => {
   const videoGet =
     (videoData.videoUrl && videoData.videoUrl.split("/").pop()) || "";
   return (
-    <div className="container mt-5">
-      <div className="card">
-        <div className="card-body">
-          <h1 className="card-title">{videoData.title}</h1>
-          <p>{videoData.desc}</p>
+    <div className="d-flex justify-content-center algin-items-center mt-5 text-center">
+      <div className="card border border-0 ">
+        <div className="card-body ">
+          <h1 className="card-title  ">{videoData.title}</h1>
+          <p className=" ">{videoData.desc}</p>
           <div className="embed-responsive embed-responsive-16by9">
             <iframe
               title={videoData.title}
-              className="embed-responsive-item"
+              className="embed-responsive-item object-fit-sm-contain border rounded-5"
+              width="760"
+              height="515"
               src={`https://www.youtube.com/embed/${videoGet}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

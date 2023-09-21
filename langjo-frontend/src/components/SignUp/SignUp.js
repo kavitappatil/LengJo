@@ -2,30 +2,30 @@
 import { useState, useEffect } from "react";
 import "./SignUp.css";
 // // eslint-disable-next-line no-unused-vars
-import langJo from "../Images/langJo.png";// eslint-disable-next-line no-unused-vars
+import langJo from "../Images/langJo.png"; // eslint-disable-next-line no-unused-vars
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-
 function SignUp() {
-  	const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
 
-  	const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    password: "",
+  });
+  const handleLoginLinkClick = () => {
+    window.location.href = "/login";
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  const resetForm = () => {
+    setFormData({
       full_name: "",
       email: "",
       password: "",
     });
-  
-
-   // eslint-disable-next-line no-unused-vars
-   const resetForm = () => {
-		setFormData({
-      full_name: "",
-      email: "",
-      password: "",
-    });
-	};
+  };
 
   const handleInputChange = (event) => {
     let { name, value } = event.target;
@@ -37,9 +37,9 @@ function SignUp() {
   }, []);
 
   const handleSubmit = (event) => {
-		event.preventDefault();
+    event.preventDefault();
 
-		if (
+    if (
       formData.full_name.trim() === "" ||
       formData.email.trim() === "" ||
       formData.password.trim() === ""
@@ -76,7 +76,9 @@ function SignUp() {
                       </p>
                       <span className="form-group d-flex flex-row p-2">
                         Already have an account?{" "}
-                        <span className="login">&nbsp; Log in</span>
+                        <span className="login" onClick={handleLoginLinkClick}>
+                          &nbsp; Log in
+                        </span>
                       </span>
                       &nbsp;
                       <form
@@ -137,9 +139,9 @@ function SignUp() {
                           <input
                             type="password"
                             className="form-control w-75"
-                            id="exampleInputPassword1"
+                            id="password"
                             placeholder="Enter Password"
-                            name="exampleInputPassword1"
+                            name="password"
                             maxLength="200"
                             onChange={handleInputChange}
                             required
@@ -171,16 +173,16 @@ function SignUp() {
                       />
                     </div>
                   </div>
+                  <div>
+                    By clicking Continue with or Sign Up, you agree to LangJo{" "}
+                    <br />
+                    <span className="font-weight-bold">
+                      Terms of Service and Privacy Policy
+                    </span>
+                    &nbsp; &nbsp;
+                  </div>
+                  <span className="font-weight-bold">&nbsp; &nbsp; </span>
                 </div>
-                <div>
-                  By clicking Continue with or Sign Up, you agree to LangJo{" "}
-                  <br />
-                  <span className="font-weight-bold">
-                    Terms of Service and Privacy Policy
-                  </span>
-                  &nbsp; &nbsp;
-                </div>
-                <span className="font-weight-bold">&nbsp; &nbsp; </span>
               </div>
             </div>
           </div>

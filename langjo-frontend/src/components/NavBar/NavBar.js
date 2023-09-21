@@ -35,7 +35,7 @@ function NavBar() {
                 <NavDropdown.Item href="/beginnerlevel">
                   Beginner
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#inter">Intermadite </NavDropdown.Item>
+                <NavDropdown.Item href="#inter">Intermediate </NavDropdown.Item>
                 <NavDropdown.Item href="#advan">Advance </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Quiz</NavDropdown.Item>

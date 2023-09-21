@@ -4,6 +4,8 @@ import BeginnerLevel from "./components/BeginnerLevel/BeginnerLevel";
 import BlocksCards from "./components/BlockCards/BlocksCards";
 import Hero from "./components/Hero/Hero";
 
+
+
 function Home() {
   return (
     <div>
@@ -11,6 +13,8 @@ function Home() {
       <LevelTest />
       <BeginnerLevel />
       <BlocksCards />
+    
+    
     </div>
   );
 }

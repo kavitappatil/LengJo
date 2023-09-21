@@ -6,6 +6,8 @@ import LogIn from "../components/LogIn/LogIn";
 import BeginnerLevel from "../components/BeginnerLevel/BeginnerLevel";
 import EnglishLevel from "../components/EnglishLevel/EnglishLevel";
 import BlockCards from "../components/BlockCards/BlocksCards";
+import VideoPage from "../components/VideoPage/VideoPage";
+
 
 function Pages() {
   return (
@@ -17,6 +19,7 @@ function Pages() {
         <Route path="/englishlevel" element={<EnglishLevel />} />
         <Route path="/beginnerlevel" element={<BeginnerLevel />} />
         <Route path="/blockcards" element={<BlockCards />} />
+        <Route path="/video-page/:id" element={<VideoPage />} />
       </Routes>
     </div>
   );

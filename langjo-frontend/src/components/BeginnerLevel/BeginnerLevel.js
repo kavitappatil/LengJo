@@ -31,14 +31,16 @@ function BeginnerLevel() {
           engaging video tutorials to help you grasp the fundamental concepts of
           learning curve...
         </p>
-        <div className="card-group gap-5">
-          {getRandomSubset(videos, 3).map((video) => {
+        <div className="d-flex justify-content-center card-group gap-3 border border-0 row">
+          {getRandomSubset(videos, 4).map((video) => {
             const videoId = video.videoUrl.split("/").pop(); // Extract video id from videoUrl
             return (
-              <div className="card video-card gap-5 rounded-5" key={video._id}>
-                <div className="video-overlay object-fit-fill">
-                  <div className="video-wrapper ratio ratio-1x1 rounded-4">
-                    <i className="bi bi-play-circle"></i>
+              <div
+                className="card video-card gap-2 object-fit-fill rounded-5 border border-0 col-6 col-sm-4 "
+                key={video._id}
+              >
+                <div className="video-overlay  border border-0">
+                  <div className="video-wrapper ratio ratio-1x1 rounded-4 border border-0">
                     <iframe
                       title={video.title}
                       width="560"
@@ -49,6 +51,17 @@ function BeginnerLevel() {
                       allowFullScreen
                     ></iframe>
                   </div>
+                </div>
+                <div className="d-grid gap-1 col-5 mx-auto px-3 border border-0">
+                  <a
+                    className="btn btn-secondary sign_up-btn rounded-5 py-2 border border-0"
+                    href={`/video-page/${video._id}`}
+                    role="button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click More
+                  </a>
                 </div>
               </div>
             );

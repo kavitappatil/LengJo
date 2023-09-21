@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function VideoDetails() {
+  const videoId = useParams();
+  const [videoData, setVideoData] = useState({});
+  useEffect(() => {
+    const fetchVideoData = async () => {
+      try {
+        console.log("Fetching video data");
+        console.log(`videoId${JSON.stringify(videoId)}`);
+        const res = await fetch(
+          `http://localhost:5000/api/videos/beginners-level/${videoId.id}`
+        );
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        const data = await res.json();
+        setVideoData(data.data);
+      } catch (error) {
+        console.error("Failed to fetch video data:", error);
+      }
+    };
+    fetchVideoData();
+  }, [videoId]);
+
   return (
     <div>
       <div className="container">
@@ -16,7 +37,7 @@ function VideoDetails() {
                 aria-expanded="false"
                 aria-controls="flush-collapseOne"
               >
-                Accordion Item #1
+                {videoData?.title}
               </button>
             </h2>
             <div
@@ -41,9 +62,7 @@ function VideoDetails() {
                 data-bs-target="#flush-collapseTwo"
                 aria-expanded="false"
                 aria-controls="flush-collapseTwo"
-              >
-                Accordion Item #2
-              </button>
+              ></button>
             </h2>
             <div
               id="flush-collapseTwo"
@@ -51,12 +70,7 @@ function VideoDetails() {
               aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample"
             >
-              <div className="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> className. This is
-                the second item's accordion body. Let's imagine this being
-                filled with some actual content.
-              </div>
+              <div className="accordion-body"></div>
             </div>
           </div>
           <div className="accordion-item">
@@ -68,9 +82,7 @@ function VideoDetails() {
                 data-bs-target="#flush-collapseThree"
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
-              >
-                Accordion Item #3
-              </button>
+              ></button>
             </h2>
             <div
               id="flush-collapseThree"
@@ -78,14 +90,7 @@ function VideoDetails() {
               aria-labelledby="flush-headingThree"
               data-bs-parent="#accordionFlushExample"
             >
-              <div className="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> className. This is
-                the third item's accordion body. Nothing more exciting happening
-                here in terms of content, but just filling up the space to make
-                it look, at least at first glance, a bit more representative of
-                how this would look in a real-world application.
-              </div>
+              <div className="accordion-body"></div>
             </div>
           </div>
         </div>
@@ -94,60 +99,3 @@ function VideoDetails() {
   );
 }
 export default VideoDetails;
-
-
-
-
-  const { videoId } = useParams();
-  const [videoData, setVideoData] = useState(null);
-
-  useEffect(() => {
-    const fetchVideoData = async () => {
-      try {
-        
-        const res = await fetch(`api/videos/`);
-
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    const data = await res.json();
-
-        setVideoData(data.data); 
-      } catch (error) {
-        console.error("Error fetching video data:", error);
-      }
-    };
-
-    if (videoId) {
-      
-      fetchVideoData();
-    }
-  }, [videoId]);
-  console.log(videoData);
-
-  if (!videoData) {
-    return (
-      <div className="d-flex justify-content-center m-5 p-5">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="container mt-5">
-      <div className="card">
-        <div className="card-body">
-          <h1 className="card-title">{videoData.title}</h1>
-          {videoData && videoData.map((videoData) => (
-            <p key={videoId}>{videoData.title}</p>
-          ))}
-          {/* <div className="embed-responsive embed-responsive-16by9">
-            <video className="embed-responsive-item" controls>
-              <source src={videoData.videoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div> */}
-        </div>
-      </div>
-    </div>
-  );

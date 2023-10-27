@@ -10,6 +10,7 @@ import VideoPage from "../components/VideoPage/VideoPage";
 import QandA from "../components/QandA/QandA";
 
 
+
 function Pages() {
   return (
     <div>
@@ -21,7 +22,7 @@ function Pages() {
         <Route path="/beginnerlevel" element={<BeginnerLevel />} />
         <Route path="/blockcards" element={<BlockCards />} />
         <Route path="/video-page/:id" element={<VideoPage />} />
-        <Route path="/video-page/QandA" element={<QandA />} />
+        <Route path="/video-page/:id/QandA" element={<QandA />} />
       </Routes>
     </div>
   );

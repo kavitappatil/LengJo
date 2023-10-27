@@ -34,7 +34,7 @@ const Footer = () => (
         justify-content-start p-3 rounded-3 shadow-lg"
       >
         <label className="d-flex flex-column">
-          <div class="col">
+          <div className="col">
             <div className="logo">
               <Image src={imgFooter} alt="Langjo" height="70" weight="100" />
             </div>

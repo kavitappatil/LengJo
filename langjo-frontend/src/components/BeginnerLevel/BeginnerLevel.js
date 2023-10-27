@@ -32,7 +32,7 @@ function BeginnerLevel() {
           learning curve...
         </p>
         <div className="d-flex justify-content-center card-group gap-3 border border-0 row">
-          {getRandomSubset(videos, 4).map((video) => {
+          {getRandomSubset(videos, 3).map((video) => {
             const videoId = video.videoUrl.split("/").pop(); // Extract video id from videoUrl
             return (
               <div

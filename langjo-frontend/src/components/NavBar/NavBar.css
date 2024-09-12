@@ -1,0 +1,51 @@
+.custom-button {
+  background-color: #1D2130; 
+  color: white; 
+  margin-left: 30px;
+}
+
+.custom-button:hover {
+  background-color: #ED5D34;
+}
+
+.home {
+    color: #ED5D34;
+    
+}
+
+.custom-search-input {
+  background-color: #D9D9D9;
+  border: none; 
+  font-size: 14px;
+  border-radius: 13px;
+  justify-content:space-between;
+  padding: 10px 5px 5px 20px;
+}
+
+.custom-search-input:hover {
+    border-color: #525560;
+    border-radius: 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #525560;
+  pointer-events: none; 
+  font-size: 14px;
+}
+
+
+.navbar {
+  background-color: #1d2130;
+}
+
+.text-white-custom {
+  color: white !important; 
+}

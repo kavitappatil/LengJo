@@ -1,8 +1,18 @@
 import express from 'express';
-import {  } from '../controllers/comment.js';
+import {
+  getComments,
+  createComment,
+  deleteComment
+  
+} from "../controllers/comment.js";
+
+
 
 const commentRouter = express.Router();
 
-commentRouter.get('/comments', ) 
+commentRouter.get("/", getComments); 
+commentRouter.post("/", createComment); 
+commentRouter.delete("/:id", deleteComment); 
+ 
 
 export { commentRouter }
